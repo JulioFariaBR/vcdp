@@ -8,29 +8,30 @@
 </head>
 <body>
     <section class="sect__corpo">
-        <video controls width="5000">          
-            <source src="./assets/video2.mp4" type="video/mp4" id="video"/>
-          </video>
+        <video controls width="5000" id="videoPlayer">          
+            <source src="./assets/video1.mp4" type="video/mp4" id="videoSource"/>
+        </video>
     </section>
+    
     <script>
-    function checkWindowSize() {
-        var video = document.getElementById('videoSource');
-        var currentVideo = video.getAttribute('src');
-
-        if (window.innerWidth < 530 && currentVideo !== './assets/video2.mp4') {
-            video.setAttribute('src', './assets/video2.mp4');
-        } else if (window.innerWidth >= 530 && currentVideo !== './assets/video1.mp4') {
-            video.setAttribute('src', './assets/video1.mp4');
+        function checkWindowSize() {
+            var video = document.getElementById('videoSource');
+            var currentVideo = video.getAttribute('src');
+    
+            if (window.innerWidth < 530 && currentVideo !== './assets/video2.mp4') {
+                video.setAttribute('src', './assets/video2.mp4');
+            } else if (window.innerWidth >= 530 && currentVideo !== './assets/video1.mp4') {
+                video.setAttribute('src', './assets/video1.mp4');
+            }
+            // Reload the video to apply changes
+            document.getElementById('videoPlayer').load();
         }
-        // Reload the video to apply changes
-        document.getElementById('videoPlayer').load();
-    }
-
-    // Run on page load
-    window.onload = checkWindowSize;
-
-    // Run on window resize
-    window.onresize = checkWindowSize;
+    
+        // Run on page load
+        window.onload = checkWindowSize;
+    
+        // Run on window resize
+        window.onresize = checkWindowSize;
     </script>
 </body>
 </html>
