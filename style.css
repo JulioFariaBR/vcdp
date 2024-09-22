@@ -28,3 +28,9 @@ video {
     width: 95%;
     height: 95%;
 }
+
+@media (max-width: 530px) {
+    body {
+        background: url(assets/fundo2.png);
+    }
+}
