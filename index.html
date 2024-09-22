@@ -13,16 +13,24 @@
           </video>
     </section>
     <script>
-        const video = document.querySelector('#video');
-        var windowWidth = window.innerWidth;
-        var windowHeight = window.innerHeight;
-  
-        if (windowWidth <= 530) {
-            video.src = './assets/video2.mp4'
-        } else if (windowWidth > 530) {
-            video.src = './assets/video1.mp4'
+    function checkWindowSize() {
+        var video = document.getElementById('videoSource');
+        var currentVideo = video.getAttribute('src');
+
+        if (window.innerWidth < 530 && currentVideo !== './assets/video2.mp4') {
+            video.setAttribute('src', './assets/video2.mp4');
+        } else if (window.innerWidth >= 530 && currentVideo !== './assets/video1.mp4') {
+            video.setAttribute('src', './assets/video1.mp4');
         }
-        
+        // Reload the video to apply changes
+        document.getElementById('videoPlayer').load();
+    }
+
+    // Run on page load
+    window.onload = checkWindowSize;
+
+    // Run on window resize
+    window.onresize = checkWindowSize;
     </script>
 </body>
 </html>
