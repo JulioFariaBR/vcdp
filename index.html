@@ -17,10 +17,11 @@
         var windowWidth = window.innerWidth;
         var windowHeight = window.innerHeight;
   
-        var screenWidth = screen.width;
-        var screenHeight = screen.height;
-        console.log(windowHeight, windowWidth);
-        console.log(screenHeight, screenWidth);
+        if (windowWidth <= 530) {
+            video.src = './assets/video2.mp4'
+        } else if (windowWidth > 530) {
+            video.src = './assets/video1.mp4'
+        }
         
     </script>
 </body>
