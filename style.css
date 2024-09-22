@@ -32,5 +32,8 @@ video {
 @media (max-width: 530px) {
     body {
         background: url(assets/fundo2.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100%;
     }
 }
